@@ -1,10 +1,12 @@
 package org.pepper.bot
 
+import com.kotlindiscord.kord.extensions.ExtensibleBot
+import com.kotlindiscord.kord.extensions.utils.env
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
 suspend fun main(): Unit = coroutineScope {
-    launch {
-        println("Hello World!")
+    val bot = ExtensibleBot(env("token")) {
     }
+
+    bot.start()
 }

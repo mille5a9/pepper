@@ -7,15 +7,33 @@ group = "org.pepper.bot"
 version = "1.0-SNAPSHOT"
 
 val kordVersion: String by project
+val kordExVersion: String by project
 val kotlinxCoroutinesVersion: String by project
+val logbackVersion: String by project
+val logbackGroovyVersion: String by project
+val loggingVersion: String by project
 
 repositories {
+    google()
     mavenCentral()
+
+    maven {
+        name = "Sonatype Snapshots (Legacy)"
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+    }
+
+    maven {
+        name = "Sonatype Snapshots"
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+    }
 }
 
 dependencies {
-    implementation("dev.kord:kord-core:${kordVersion}")
+    implementation("com.kotlindiscord.kord.extensions:kord-extensions:${kordExVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
+    implementation("ch.qos.logback:logback-classic:${logbackVersion}")
+    implementation("io.github.virtualdogbert:logback-groovy-config:${logbackGroovyVersion}")
+    implementation("io.github.oshai:kotlin-logging:${loggingVersion}")
 
     testImplementation(kotlin("test"))
 }
