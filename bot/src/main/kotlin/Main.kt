@@ -7,9 +7,9 @@ import org.pepper.bot.extensions.NewGameExtension
 
 suspend fun main(): Unit = coroutineScope {
     val bot = ExtensibleBot(env("token")) {
-        extensions {
-            add(::NewGameExtension)
-        }
+//        extensions {
+//            add(::NewGameExtension)
+//        }
     }
 
     bot.start()

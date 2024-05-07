@@ -1,10 +1,13 @@
+import org.gradle.jvm.tasks.Jar
+
 plugins {
     kotlin("jvm") version "1.9.23"
     application
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "org.pepper.bot"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 val kordVersion: String by project
 val kordExVersion: String by project
@@ -47,4 +50,8 @@ kotlin {
 
 application {
     mainClass = "org.pepper.bot.MainKt"
+}
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "org.pepper.bot.MainKt"
 }

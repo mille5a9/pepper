@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./gradlew :bot:buildFatJar
+./gradlew build
 docker-compose down
 docker-compose up -d --build
