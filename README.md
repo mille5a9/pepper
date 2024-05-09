@@ -8,3 +8,4 @@ Pepper is a Discord server administration bot. She: (Planned Features)
 - relays rich status updates for configured game servers
 - logs all chat content on the server
 - can participate in voice channels
+- can DM individuals with google maps trip-sharing links
