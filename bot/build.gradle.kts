@@ -15,6 +15,7 @@ val kotlinxCoroutinesVersion: String by project
 val logbackVersion: String by project
 val logbackGroovyVersion: String by project
 val loggingVersion: String by project
+val skrapeitVersion: String by project
 
 repositories {
     google()
@@ -32,11 +33,12 @@ repositories {
 }
 
 dependencies {
-    implementation("com.kotlindiscord.kord.extensions:kord-extensions:${kordExVersion}")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
-    implementation("ch.qos.logback:logback-classic:${logbackVersion}")
-    implementation("io.github.virtualdogbert:logback-groovy-config:${logbackGroovyVersion}")
-    implementation("io.github.oshai:kotlin-logging:${loggingVersion}")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("com.kotlindiscord.kord.extensions:kord-extensions:$kordExVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    implementation("io.github.virtualdogbert:logback-groovy-config:$logbackGroovyVersion")
+    implementation("io.github.oshai:kotlin-logging:$loggingVersion")
+    implementation("it.skrape:skrapeit:$skrapeitVersion")
 
     testImplementation(kotlin("test"))
 }
