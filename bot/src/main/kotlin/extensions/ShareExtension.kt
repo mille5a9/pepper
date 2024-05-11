@@ -1,6 +1,7 @@
 package org.pepper.bot.extensions
 
 import com.kotlindiscord.kord.extensions.commands.Arguments
+import com.kotlindiscord.kord.extensions.commands.application.slash.converters.impl.defaultingEnumChoice
 import com.kotlindiscord.kord.extensions.commands.converters.impl.*
 import com.kotlindiscord.kord.extensions.components.components
 import com.kotlindiscord.kord.extensions.components.linkButton
@@ -82,7 +83,7 @@ class ShareExtension : Extension() {
             description = "Name or address of trip destination"
         }
 
-        val pronouns by defaultingEnum<Pronouns> {
+        val pronouns by defaultingEnumChoice<Pronouns> {
             name = "pronouns"
             description = "Your own preferred pronouns"
             defaultValue = Pronouns.THEYTHEM
