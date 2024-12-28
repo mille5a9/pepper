@@ -11,6 +11,8 @@ import com.kotlindiscord.kord.extensions.utils.capitalizeWords
 import com.kotlindiscord.kord.extensions.utils.env
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.behavior.channel.createMessage
+import dev.kord.core.entity.Message
+import dev.kord.rest.builder.message.create.MessageCreateBuilder
 import dev.kord.rest.builder.message.embed
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toKotlinInstant
@@ -35,9 +37,11 @@ class ShareExtension : Extension() {
 
             if (env("environment") == "DEV") guild(Snowflake(env("testserver")))
 
+            lateinit var message: Message
+
             action {
                 val link = arguments.body.whileReversed { it.substring(0, it.indexOf(' ')) }
-                arguments.user.getDmChannel().createMessage {
+                message = arguments.user.getDmChannel().createMessage {
                     components {
                         content = "Woof!"
                         embed {
@@ -57,7 +61,6 @@ class ShareExtension : Extension() {
                         }
                     }
                 }
-
             }
         }
     }

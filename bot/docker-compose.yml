@@ -1,10 +1,8 @@
-version: '3.1'
-
 services:
   bot:
     build: .
     ports:
-      - "8080:8080"
+      - "8180:8080"
     restart: unless-stopped
     depends_on:
       db:
@@ -19,7 +17,7 @@ services:
   db:
     image: postgres
     volumes:
-      - /mnt/data/postgres:/var/lib/postgresql/data
+      - /mnt/data/postgres2:/var/lib/postgresql/data
     restart: always
     environment:
       POSTGRES_PASSWORD: Choking2-Yapping-Reach
